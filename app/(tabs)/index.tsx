@@ -1,12 +1,4 @@
-import { Link } from "expo-router";
-import {
-  Text,
-  View,
-  Image,
-  ScrollView,
-  ActivityIndicator,
-  FlatList,
-} from "react-native";
+import { Image, ScrollView, ActivityIndicator, FlatList } from "react-native";
 import { images } from "@/constants/images";
 import { icons } from "@/constants/icons";
 import SearchBar from "@/components/SearchBar";
@@ -14,6 +6,8 @@ import { useRouter } from "expo-router";
 import useFetch from "@/services/useFetch";
 import { fetchMovies } from "@/services/api";
 import MovieCard from "@/components/MovieCard";
+import View from "@/components/ui/view/View";
+import Text from "@/components/ui/text/Text";
 
 export default function Index() {
   const router = useRouter();
@@ -23,8 +17,9 @@ export default function Index() {
     loading: moviesLoading,
     error: moviesError,
   } = useFetch(() => fetchMovies({ query: "" }), true);
+
   return (
-    <View className="flex-1 bg-primary">
+    <View className="flex-1">
       <Image
         source={images.bg}
         className="absolute w-full z-0"
@@ -53,9 +48,7 @@ export default function Index() {
               placeholder="search for a movie"
             />
             <>
-              <Text className="text-lg text-white font-bold mt-5 mb-3">
-                Latest Movies
-              </Text>
+              <Text className="text-lg font-bold mt-5 mb-3">Latest Movies</Text>
               <FlatList
                 data={movies}
                 renderItem={({ item }) => <MovieCard {...item} />}

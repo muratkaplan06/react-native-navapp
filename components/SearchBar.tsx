@@ -3,11 +3,18 @@ import { icons } from "@/constants/icons";
 import React from "react";
 
 interface SearchBarProps {
+  value?: string;
   placeholder: string;
-  onPress: () => void;
+  onPress?: () => void;
+  onChangeText?: (text: string) => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ placeholder, onPress }) => {
+const SearchBar: React.FC<SearchBarProps> = ({
+  value,
+  placeholder,
+  onPress,
+  onChangeText,
+}) => {
   return (
     <View className="flex-row items-center bg-dark-200" rounded-full px-5 py-4>
       <Image
@@ -19,8 +26,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ placeholder, onPress }) => {
       <TextInput
         placeholder={placeholder}
         onPress={onPress}
-        value=""
-        onChangeText={() => {}}
+        value={value}
+        onChangeText={onChangeText}
         placeholderTextColor="#a8b5db"
         className="flex-1 ml-2 text-white"
       />
