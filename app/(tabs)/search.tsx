@@ -1,8 +1,8 @@
 import { Image, FlatList, ActivityIndicator } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "expo-router";
-import useFetch from "@/services/useFetch";
-import { fetchMovies } from "@/services/api";
+import useFetch from "@/redux/services/useFetch";
+import { fetchMovies } from "@/redux/services/api";
 import { images } from "@/constants/images";
 import MovieCard from "@/components/MovieCard";
 import { icons } from "@/constants/icons";
