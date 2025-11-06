@@ -8,6 +8,7 @@ import { fetchMovies } from "@/redux/services/api";
 import MovieCard from "@/components/MovieCard";
 import View from "@/components/ui/view/View";
 import Text from "@/components/ui/text/Text";
+import HeaderUser from "@/components/ui/header/Header";
 
 export default function Index() {
   const router = useRouter();
@@ -31,6 +32,8 @@ export default function Index() {
         contentContainerStyle={{ minHeight: "100%", paddingBottom: 10 }}
       >
         <Image source={icons.logo} className="w-12 h-10 mt-20 mb-5 mx-auto" />
+
+        <HeaderUser />
 
         {moviesError ? (
           <ActivityIndicator
